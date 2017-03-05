@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	
+<html>
+<head>
+<title>Ninja Gold</title>
+ 
+<style>
+
+body {
+       
+        font-family:"Segoe Ui";
+		font-weight: lighter;
+		width:100%;height:100%
+		
+} 
+.bodycss{
+	background-image: url('Images/BackGroundCave.png');
+    background-size: 100%;
+    -webkit-background-size: cover;
+	-moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-position:center; 
+}	
+h1{
+	font-family:"Segoe Ui";
+	font-weight: lighter;
+	font-size: 50px;
+	color:white ;
+	background-color:#4e7398;
+	border-style: dashed;
+	border-width: 2px;
+	border-color:white;
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+
+.sample:hover{
+	background-color: darkred;
+	border-color:darkred;
+}
+.sample{
+	background-color: indianred;
+	border-color:indianred;
+	width: 200px;
+}
+
+.simple:hover{
+	background-color: dimgray;
+	border-color:white;
+}
+.simple{
+	background-color: gray;
+	border-color:white;
+	width: 200px;
+	height:50px;
+}
+
+.simple2{
+	padding-top:10px;
+}
+.attemps{
+	color:white;
+}
+.txAttemps{
+	width:250px;
+}
+.sButton{
+	width: 100%;
+	height: 75px;
+}
+
+img{
+	
+}
+.buttonsim{
+	
+}
+.ninja{
+	opacity:0;
+}
+.abc{
+	opacity:.5;
+	height: 50%; width: 50%;
+}
+.rButton{
+	padding-top:27px;
+	padding-left:57px
+
+}
+.ScrollStyle
+{
+	height: :100%;
+	max-height: 150px;
+	overflow-y: scroll;
+	height: fixed;
+
+}
+.wat{
+	height:150px;
+}
+ #animate {
+}
+.animated{
+	width: 13%;
+  	height: 45%;
+	background-image: url('Images/ninja.png') no-repeat;	
+	opacity:0;
+	position: absolute;
+	background-repeat: no-repeat;
+	top:-1px;
+	background-size: 100% 100%;
+	left:-1px;
+
+}
+.Gains{
+	color:indianred;
+	font-weight: bold;
+}
+.Lose{
+	font-weight: bold;	
+	color:#3B9342;
+}
+.None{
+	font-weight: bold;	
+	color:gray;
+}
+</style>
+ 
+</head>
+<body class="bodycss">
+	<center><h1>Welcome to Ninja Gold!</h1></center>
+	
+		<br>
+		<br>
+		<div class ="container-fluid" id="contain">
+			<div class ="row">
+				<div class="col-md-12">
+					<div class="col-md-3"> 
+						<button id="Cave" class="btn btn-primary btn-lg sButton" role="button">Cave</button>
+					</div>
+					<div class="col-md-3 ">
+						<button id='House' class="btn btn-primary btn-lg sButton" role="button">House</button>
+					</div>
+					<div class="col-md-3 ">
+						<button id='Gold' class="btn btn-primary btn-lg sButton" href="#" role="button">Gold Mine</button>
+					</div>
+					<div class="col-md-3">
+						<button id='Casino' class="btn btn-primary btn-lg sButton" href="#" role="button">Casino</button>
+					</div>
+				</div>
+			</div>
+			<br>			
+			<div class="row">
+				<div class="col-md-12">
+					<div class="col-md-3 pull-right">
+						<label class="attemps" for="att">Score:</label>
+						<input class="form-control txAttemps" id="att" type="text" disabled placeholder="0">
+					</div>
+					<div class="col-md-2">
+						<label class="attemps" for="att">Remaining Attemps:</label>
+						<input class="form-control txAttemps" id="txtAttemp" type="text" disabled placeholder="20 More Attemps">
+					</div>
+					<div class="col-md-1 rButton">
+							<a class="btn btn-danger btn-sm"id='reset' href="#" role="button">Reset</a>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<br>
+					<img id="HouseBg" class = "abc" style='float:right' src="Images/Houses.png";/> 
+					<img id="CaveBg" class = "abc" src="Images/Cave.png";/> 
+					
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<img id="CasinoBg" class = "abc" style='float:right' src="Images/Casino.png";/> 
+					<img id="GoldMineBg" class = "abc" src="Images/GoldMine.png";/> 
+				</div>
+			</div>
+			<br>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="panel panel-primary">
+      					<div class="panel-heading">Logs:</div>
+      					<div class="panel-body">
+      						<ul class="nav nav-tabs">
+			  					<li class="active"><a data-toggle="tab" href="#All">All</a></li>
+		  						<li ><a data-toggle="tab" href="#Gains">Gains</a></li>
+			  					<li><a data-toggle="tab" href="#Loses">Loses</a></li>
+		  					</ul>
+		  					<div class="tab-content ScrollStyle wat">
+							    <div id="All" class="tab-pane fade in active">
+							      <h3></h3>
+							      <div id="pAll">
+
+							      </div>
+							    </div>
+							    <div id="Gains" class="tab-pane fade">
+							      <h3></h3>
+							      <div id="pGains">
+
+							      </div>
+							    </div>
+							    <div id="Loses" class="tab-pane fade">
+							      <h3></h3>
+							      <div id="pLoses">
+
+							      </div>
+							    </div>
+							  </div>
+      					</div>
+    				</div>
+				</div>
+			</div>
+		</div>
+	
+	<img id="ninjaa" class="animated" src="Images/Ninja.png"/> 
+<script>
+$(document).ready(function(){
+	var nAttemp = parseInt(localStorage.getItem('lAttemps'));
+	var counter=0;
+	var ttlScore = parseInt(localStorage.getItem('scores')) || 0;
+	var sampleee = localStorage.getItem('scores') ;
+	var all =[];
+	var gain = [];
+	var loss = [];
+	var jsonObj = {
+        "score" : "0",
+        "attempts" : "20",
+        "data" : []
+    };
+    setLoaded();
+
+    function setLoaded(){
+    	
+		if(parseInt(nAttemp) <=0 || ttlScore >= 250) {
+			document.getElementById("Cave").disabled = true;
+			document.getElementById("House").disabled = true;
+			document.getElementById("Gold").disabled = true;
+			document.getElementById("Casino").disabled = true;
+			$("#ninjaa").animate({top: "0%",opacity:"0",left: "0%",borderstyle:"solid",bordercolor:"yellow",width:"13%",height: "45%"});
+	 	  	$("#CaveBg").animate({opacity:".5"});
+	        $("#HouseBg").animate({opacity:".5"});
+	        $("#CasinoBg").animate({opacity:".5"});
+	        $("#GoldMineBg").animate({opacity:".5"});
+		}
+    	$('#att').val(ttlScore);
+    	$('#txtAttemp').val(nAttemp + " More Attemps");
+
+    	$('#pAll').empty();
+		$('#pGains').empty();
+		$('#pLoses').empty();
+		var d = new Date().toLocaleTimeString();
+		var ttl =0;
+		var lall =  localStorage.getItem("lLogs") || [];
+		if(lall.length != 0){
+			all = JSON.parse(lall).map((data) =>{
+				parseInt(data.amount) > 0 ? all.push(data) : all.push(data)
+				return data;
+			})
+			$.each(all, function(i, item) {
+				ttl += parseInt(item.amount);
+				if(parseInt(item.amount) < 0){
+					$('#pAll').append("<p class='Gains'>" +" TIME: "+item.timed+", LOCATION : " + item.locate + ", AMOUNT : " + item.amount + ", TOTAL SCORE: " + ttl+
+						"</p>");
+					$('#pLoses').append("<p class='Gains'>"+" TIME: "+item.timed+", LOCATION : " + item.locate + ", AMOUNT : " + item.amount + ", TOTAL SCORE: " + ttl+
+						"</p>");
+				}else if(parseInt(item.amount) > 0){
+					$('#pAll').append("<p class='Lose'>"+" TIME: "+item.timed+", LOCATION : " + item.locate + ", AMOUNT : " + item.amount + ", TOTAL SCORE: " + ttl+ 
+						"</p>");
+					$('#pGains').append("<p class='Lose'>"+" TIME: "+item.timed+", LOCATION : " + item.locate + ", AMOUNT : " + item.amount + ", TOTAL SCORE: " + ttl+ 
+						"</p>");
+				}else{
+					$('#pAll').append("<p class='None'>"+" TIME: "+item.timed+", LOCATION : " + item.locate + ", AMOUNT : " + item.amount + ", TOTAL SCORE: " + ttl+ 
+						"</p>");
+				}
+			});
+		}
+    }
+
+
+	function logs(llocation,amount){
+		var A="";
+		var scoree =0;
+		var d = new Date().toLocaleTimeString();
+		localStorage.setItem('scores',ttlScore);
+		jsonObj.score= ttlScore;
+	 	all.push({locate:llocation,amount:amount,timed:d});
+
+		localStorage.setItem ('lLogs',JSON.stringify(all));
+
+		$('#pAll').empty();
+		$('#pGains').empty(); 
+		$('#pLoses').empty();
+		var ttl =0;
+		$.each(all, function(i, item) {
+			ttl += parseInt(item.amount);
+			if(parseInt(item.amount) < 0){
+				$('#pAll').append("<p class='Gains'>" +" TIME: "+item.timed+", LOCATION : " + item.locate + ", AMOUNT : " + item.amount + ", TOTAL SCORE: " + ttl+
+					"</p>");
+				$('#pLoses').append("<p class='Gains'>"+" TIME: "+item.timed+", LOCATION : " + item.locate + ", AMOUNT : " + item.amount + ", TOTAL SCORE: " + ttl+
+					"</p>");
+			}else if(parseInt(item.amount) > 0){
+				$('#pAll').append("<p class='Lose'>"+" TIME: "+item.timed+", LOCATION : " + item.locate + ", AMOUNT : " + item.amount + ", TOTAL SCORE: " + ttl+ 
+					"</p>");
+				$('#pGains').append("<p class='Lose'>"+" TIME: "+item.timed+", LOCATION : " + item.locate + ", AMOUNT : " + item.amount + ", TOTAL SCORE: " + ttl+ 
+					"</p>");
+			}else{
+				$('#pAll').append("<p class='None'>"+" TIME: "+item.timed+", LOCATION : " + item.locate + ", AMOUNT : " + item.amount + ", TOTAL SCORE: " + ttl+ 
+					"</p>");
+			}
+		});
+	}
+    	
+
+
+
+    $("#Cave").click(function(){
+        $("#ninjaa").animate({top: "55%",opacity:"1",left: "18%",borderstyle:"solid",bordercolor:"yellow",width:"13%",height: "45%"});
+        $("#CaveBg").animate({opacity:"1"});
+        $("#HouseBg").animate({opacity:".5"});
+        $("#CasinoBg").animate({opacity:".5"});
+        $("#GoldMineBg").animate({opacity:".5"});
+        nAttemps("Cave");
+    });
+    $("#House").click(function(){
+        $("#ninjaa").animate({top: "55%",opacity:"1",left: "68%",borderstyle:"solid",bordercolor:"yellow",width:"13%",height: "45%"});
+        $("#CaveBg").animate({opacity:".5"});
+        $("#HouseBg").animate({opacity:"1"});
+        $("#CasinoBg").animate({opacity:".5"});
+        $("#GoldMineBg").animate({opacity:".5"});
+        nAttemps("House");
+    });
+    $("#Gold").click(function(){
+        $("#ninjaa").animate({top: "110%",opacity:"1",left: "21%",borderstyle:"solid",bordercolor:"yellow",width:"8%",height: "25%"});
+        $("#CaveBg").animate({opacity:".5"});
+        $("#HouseBg").animate({opacity:".5"});
+        $("#CasinoBg").animate({opacity:".5"});
+        $("#GoldMineBg").animate({opacity:"1"});
+        nAttemps("Gold");
+    });
+    $("#Casino").click(function(){
+        $("#ninjaa").animate({top: "108%",opacity:"1",left: "71%",borderstyle:"solid",bordercolor:"yellow",width:"8%",height: "25%"});
+        $("#CaveBg").animate({opacity:".5"});
+        $("#HouseBg").animate({opacity:".5"});
+        $("#CasinoBg").animate({opacity:"1"});
+        $("#GoldMineBg").animate({opacity:".5"});
+        nAttemps("Casino");
+
+    });
+    function nAttemps(Type){
+    	localStorage.setItem('lAttemps',nAttemp);
+    	if(nAttemp >=0){
+    		$('#txtAttemp').val(nAttemp + " More Attemps");
+    		switch (Type) { 
+			case 'Cave': 
+				CaveScore();
+				break;
+			case 'House': 
+				HouseScore();
+				break;
+			case 'Gold': 
+				GoldMineScore();
+				break;
+			case 'Casino': 
+				CasinoScore();
+				break;				
+			}
+		nAttemp-=1;
+		counter++;
+		}
+		status();
+	}
+    function CaveScore(){
+    	$('#att').val(ttlScore += 5);
+    	logs("Cave", "+5");
+    }
+
+    function HouseScore(){
+    	var d = Math.random();
+    	if(d < 0.8){
+			$('#att').val(ttlScore += 10);
+    	}
+    	logs("House", "+10");
+    }
+
+    function GoldMineScore(){
+    	var amountget="0";
+    	var d = Math.random();
+    	if(d < 0.8){
+    		amountget = randomIntFromInterval(1,25);
+			$('#att').val(ttlScore += amountget)	;
+    	}
+    	logs("GoldMine", "+"+amountget);
+    }
+    
+    function CasinoScore(){
+    	var d = Math.random();
+    	var sign = "+";
+    	var amountget="0";
+    	
+    		d = Math.random();
+    		amountget = randomIntFromInterval(40,50);
+    		if(d < 0.5){
+				$('#att').val(ttlScore += amountget);
+    		}else{
+    			sign = "-";
+    			$('#att').val(ttlScore -= amountget);
+    		}
+    		
+    	logs("Casino",sign+amountget);
+    }
+    function randomIntFromInterval(min,max)
+	{
+    	return Math.floor(Math.random()*(max-min+1)+min);
+	}
+	function status(){
+		if(parseInt(nAttemp) <0) {
+			alert("Game Over!!! You LOSE!!! Total Score: " +ttlScore);
+			document.getElementById("Cave").disabled = true;
+			document.getElementById("House").disabled = true;
+			document.getElementById("Gold").disabled = true;
+			document.getElementById("Casino").disabled = true;
+			$("#ninjaa").animate({top: "0%",opacity:"0",left: "0%",borderstyle:"solid",bordercolor:"yellow",width:"13%",height: "45%"});
+	 	  	$("#CaveBg").animate({opacity:".5"});
+	        $("#HouseBg").animate({opacity:".5"});
+	        $("#CasinoBg").animate({opacity:".5"});
+	        $("#GoldMineBg").animate({opacity:".5"});
+	        
+		}
+		if(ttlScore >= 250){
+			alert("Game Over!!! You Win!!! Total Score: " +ttlScore);
+			document.getElementById("Cave").disabled = true;
+			document.getElementById("House").disabled = true;
+			document.getElementById("Gold").disabled = true;
+			document.getElementById("Casino").disabled = true;
+			$("#ninjaa").animate({top: "0%",opacity:"0",left: "0%",borderstyle:"solid",bordercolor:"yellow",width:"13%",height: "45%"});
+	 	  	$("#CaveBg").animate({opacity:".5"});
+	        $("#HouseBg").animate({opacity:".5"});
+	        $("#CasinoBg").animate({opacity:".5"});
+	        $("#GoldMineBg").animate({opacity:".5"});
+		}
+	}
+	 $("#reset").click(function(){
+	 	all = [];
+	 	nAttemp = 19;
+	 	localStorage.setItem('lAttemps',"19");
+	 	localStorage.setItem('scores',"0");
+	 	var sam = localStorage.getItem('scores');
+	 	ttlScore = 0;
+	 	localStorage.setItem('lLogs',all);
+ 	  	$("#txtAttemp").val("20 more Attemps");
+ 	  	$("#att").val(ttlScore);
+ 	  	$('#pAll').empty();
+ 	  	$('#pGains').empty();
+ 	  	$('#pLoses').empty();
+ 	  	$("#ninjaa").animate({top: "0%",opacity:"0",left: "0%",borderstyle:"solid",bordercolor:"yellow",width:"13%",height: "45%"});
+ 	  	$("#CaveBg").animate({opacity:".5"});
+        $("#HouseBg").animate({opacity:".5"});
+        $("#CasinoBg").animate({opacity:".5"});
+        $("#GoldMineBg").animate({opacity:".5"});
+        document.getElementById("Cave").disabled = false;
+		document.getElementById("House").disabled = false;
+		document.getElementById("Gold").disabled = false;
+		document.getElementById("Casino").disabled = false;
+    });
+	
+});
+</script>
+</body>
+</html>
